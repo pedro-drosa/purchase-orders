@@ -1,0 +1,35 @@
+# ASSETS
+POST http://localhost:3000/api/assets HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "id": 1,
+  "symbol": "BTC"
+}
+###
+GET http://localhost:3000/api/assets HTTP/1.1
+Host: localhost:3000
+###
+GET http://localhost:3000/api/assets/1 HTTP/1.1
+###
+
+# ORDERS 
+POST http://localhost:3000/api/orders HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "asset": {
+    "id": 2,
+    "symbol": "LTC"
+  },
+  "price": 100
+}
+###
+GET http://localhost:3000/api/orders HTTP/1.1
+Host: localhost:3000
+###
+GET http://localhost:3000/api/orders/fcd5d7eb-1908-4381-b279-6e6e9de02f90 HTTP/1.1
+Host: localhost:3000
+###
