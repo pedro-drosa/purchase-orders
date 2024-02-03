@@ -1,5 +1,10 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
-import { randomUUID } from 'node:crypto';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Asset } from '../../assets/entities/asset.entity';
 
 export enum OrderStatus {
@@ -10,8 +15,8 @@ export enum OrderStatus {
 
 @Entity({ name: 'orders' })
 export class Order {
-  @PrimaryColumn()
-  id: string = randomUUID();
+  @PrimaryGeneratedColumn('increment')
+  id: string;
 
   @ManyToOne(() => Asset, { eager: true, cascade: ['insert'] })
   @JoinColumn({ name: 'assetId' })
